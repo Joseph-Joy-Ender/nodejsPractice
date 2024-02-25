@@ -48,4 +48,20 @@ const login = async (request) =>{
         msg: "Login successful"
     }
 }
-module.exports = {createUser, login};
+
+const deleteUser = async (request) =>{
+    const {id} = request
+    const user = await User.findByIdAndDelete(id)
+    if (!user){
+        throw new NotFoundException("User doesn't exit");
+    }
+
+    return{
+        msg: "Delete was successful"
+    }
+
+
+
+
+}
+module.exports = {createUser, login, deleteUser};

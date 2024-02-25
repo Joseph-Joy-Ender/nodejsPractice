@@ -17,4 +17,10 @@ const login = async (req, res) =>{
         .catch((error) => res.json(error.message))
 };
 
-module.exports = {register, login};
+const deleteUser = async (req, res) =>{
+    return await userService.deleteUser(req.body)
+        .then((response) => res.json(response))
+        .catch((error) => res.json(error.message))
+};
+
+module.exports = {register, login, deleteUser};
