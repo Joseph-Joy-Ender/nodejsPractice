@@ -5,12 +5,11 @@ const cors = require('cors')
 const dbUrl = process.env.MONGO_URI
 const Connect = require('./features/db/connectDB');
 const router = require('./features/router/Router')
-const port = 8000;
+const port = 3000;
 const notFound = require('./features/middleware/NotFound');
 
-
-app.use(express.json())
 app.use(cors())
+app.use(express.json())
 app.use('/api/user', router)
 app.use(notFound);
 

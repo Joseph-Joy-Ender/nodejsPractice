@@ -2,9 +2,11 @@ const User = require("../model/user");
 const NotFoundException = require("../exceptions/NotFoundException");
 
 const createUser = async (request) =>{
+    console.log("I am here in service")
     const {firstName, lastName, email, password} = request;
 
     const user = await User.findOne({email});
+    console.log(user)
     if (user){
         throw new NotFoundException("Email already in use");
     }
@@ -16,7 +18,12 @@ const createUser = async (request) =>{
         password: password,
     };
 
+    console.log("nweuser", newUser)
+
     const savedUser = await User.create(newUser)
+    console.log("nweuser", savedUser.firstName)
+
+    console.log("nweuser", savedUser)
 
     const response = {
         _id: savedUser._id,
