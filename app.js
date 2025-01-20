@@ -2,7 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const cors = require('cors')
-const dbUrl = process.env.MONGO_URI
+const dbUrl = 'mongodb://localhost:27017/nodeJsPractice'
+    // process.env.MONGO_URI
 const Connect = require('./features/db/connectDB');
 const router = require('./features/router/Router')
 const port = 3000;

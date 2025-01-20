@@ -18,12 +18,12 @@ const createUser = async (request) =>{
         password: password,
     };
 
-    console.log("nweuser", newUser)
+    console.log("newUser", newUser)
 
     const savedUser = await User.create(newUser)
-    console.log("nweuser", savedUser.firstName)
+    console.log("newUser", savedUser.firstName)
 
-    console.log("nweuser", savedUser)
+    console.log("newUser", savedUser)
 
     const response = {
         _id: savedUser._id,
